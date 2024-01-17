@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background-image: url(https://images.pexels.com/photos/1037993/pexels-photo-1037993.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+      overflow: hidden;
+      width: 100vw;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+      font-size: 60px;
+      margin-top: 0px;
+    }
+
+    .sub {
+      display: flex;
+      gap: 70px;
+      justify-content: center;
+    }
+
+    .pi:nth-child(odd) {
+      background: skyblue;
+      border: 2px solid black;
+      border-radius: 20px;
+      width: 200px;
+    }
+
+    .pi:nth-child(even) {
+      background: palevioletred;
+      border: 2px solid black;
+      border-radius: 20px;
+      width: 150px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <h1>OFFER COMING SOON</h1>
+    <p>Jan 8, 2027 11:23:00 PM</p>
+    <div class="sub">
+      <p class="pi" id="demo"></p>
+      <p class="pi" id="demo1"></p>
+      <p class="pi" id="demo2"></p>
+      <p class="pi" id="demo3"></p>
+    </div>
+  </div>
+
+  <script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("Jan 8, 2027 15:37:25").getTime();
+
+    // Update the count down every 1 second
+    var x = setInterval(function () {
+
+      // Get today's date and time
+      var now = new Date().getTime();
+
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Output the result in an element with id="demo"
+      document.getElementById("demo").innerHTML = days + " d ";
+      document.getElementById("demo1").innerHTML = hours + " h ";
+      document.getElementById("demo2").innerHTML = minutes + " m ";
+      document.getElementById("demo3").innerHTML = seconds + " s ";
+
+      // If the count down is over, write some text 
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+        document.getElementById("demo1").innerHTML = "";
+        document.getElementById("demo2").innerHTML = "";
+        document.getElementById("demo3").innerHTML = "";
+      }
+    }, 1000);
+  </script>
+
+</body>
+
+</html>
